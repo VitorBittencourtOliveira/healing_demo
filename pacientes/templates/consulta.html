@@ -73,14 +73,17 @@
                     {% endif %}
                     <hr>
                 {% endif %}
-                <h3 class="p-bold">Meus documentos</h3>
-                <br>
-                {% for documento in documentos %}
+                {% if consulta.status != 'F' %}
+                {% else %}
+                    <h3 class="p-bold">Meus documentos</h3>
                     <br>
-                        <a href="{{documento.documento.url}}" class="link documentos" target="_blank"><i class="bi bi-file-arrow-down"></i> {{documento.titulo}} - {{documento.consulta.data_aberta.data.year}}</a>
-                    <br><br>
-                {% endfor %}
-                <br><br><br><br>
+                    {% for documento in documentos %}
+                        <br>
+                            <a href="{{documento.documento.url}}" class="link documentos" target="_blank"><i class="bi bi-file-arrow-down"></i> {{documento.titulo}} - {{documento.consulta.data_aberta.data.year}}</a>
+                        <br><br>
+                    {% endfor %}
+                    <br><br><br><br>
+                {% endif %}
             </div>
             <div class="col-md"></div>
         </div>
