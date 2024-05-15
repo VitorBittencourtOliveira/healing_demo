@@ -60,11 +60,8 @@
                 <p class="bg-main-lembrete">
                     {% if minhas_consultas %}
                         {% for consulta in minhas_consultas %}
-                            {% if consulta.data_aberta.data and consulta.status != "F" and consulta.status != "C" %}
-                                <span class="p-bold"><i class="bi bi-exclamation-triangle-fill icon-differential"></i>&nbsp&nbsp Consulta com {{consulta.data_aberta.user.dadosmedico_set.first.nome}}
-                                    em {{consulta.diferenca_dias}}{% if consulta.diferenca_dias == 1 %} dia. {% else %} dias.{%endif%}
-                                </span><br>
-                            {% endif %}
+                            <span class="p-bold"><i class="bi bi-exclamation-triangle-fill icon-differential"></i>&nbsp&nbsp Consulta com {{consulta.data_aberta.user.dadosmedico_set.first.nome}} {% if consulta.diferenca_dias == 0 %} hoje {% else %}em {{consulta.diferenca_dias}}{% if consulta.diferenca_dias == 1 %} dia. {% else %} dias.{% endif %}{% endif %}
+                            </span><br>
                         {% endfor %}
                     {% else %}
                         <span class="p-bold">

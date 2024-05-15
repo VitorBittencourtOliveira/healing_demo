@@ -79,8 +79,7 @@
                     </form>
                 <hr>
                 {% endif %}
-                {% if consulta.status == 'F' or consulta.status == 'C' %}
-                {% else %}
+                {% if consulta.status == 'I' %}
                     <a href="{% url 'finalizar_consulta' consulta.id %}" class="btn btn-success btn-dark-color btn-lg">Finalizar consulta</a>
                 {% endif %}
             </div>
